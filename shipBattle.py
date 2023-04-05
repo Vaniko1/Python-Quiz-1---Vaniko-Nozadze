@@ -67,19 +67,23 @@ class Game:
                 print(f'სამწუხაროდ {players[i].name} სროლა გამაზე')
                 i = not i
 
+
 playerOne_Name = input('მოთამაშე 1 - შეიყვანეთ თქვენი სახელი: ')
 while playerOne_Name == '':
     playerOne_Name = input('მოთამაშე 1 - გთხოვთ შეიყვანოთ თქვენი სახელი: ')
+
 playerOne_VictoryPhrase = input('მოთამაშე 1 - თუ გსურს შეიყვანე შენი გამარჯვების ფრაზა, თუ არადა დააწექი Enter ღილაკს: ')
 if playerOne_VictoryPhrase == '':
     playerOne_VictoryPhrase = None
 else:
     playerOne_VictoryPhrase == playerOne_VictoryPhrase
+
 count = 0
 playerOne_Ship_Position = []
 ship_One = 0
 letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
 numbers = ['1', '2', '3', '4', '5', '6', '7', '8']
+
 while count < 3:
     playerOne_ship = ''
     playerOne_ship_letter = input(f'გემი {ship_One + 1}-სთვის შეიყვანეთ თქვენთვის სასურველი ასო: ').upper()
@@ -107,11 +111,13 @@ if playerTwo_VictoryPhrase == '':
     playerTwo_VictoryPhrase = None
 else:
     playerTwo_VictoryPhrase == playerTwo_VictoryPhrase
+
 count = 0
 playerTwo_Ship_Position = []
 ship_Two = 0
 letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
 numbers = ['1', '2', '3', '4', '5', '6', '7', '8']
+
 while count < 3:
     playerTwo_ship = ''
     playerTwo_ship_letter = input(f'გემი {ship_Two + 1}-სთვის შეიყვანეთ თქვენთვის სასურველი ასო: ').upper()
@@ -161,3 +167,5 @@ G1.gameOn(P1, P2)
 
 print(f'{P1.name}-ის მოგებები:', P1.wins)
 print(f'{P2.name}-ის მოგებები:', P2.wins)
+
+# gamarjoba
