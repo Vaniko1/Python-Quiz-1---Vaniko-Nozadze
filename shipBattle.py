@@ -24,16 +24,24 @@ print(game_info)
 
 
 class Player:
-    def __init__(self, name, shipPosition, victoryPhrase=None, wins=0):
+    def __init__(self, name, shipPosition, Description,  victoryPhrase=None, wins=0):
         self.name = name
         self.shipPosition = shipPosition
+        self.__Description = Description
         self.victoryPhrase = victoryPhrase
         self.wins = wins
 
+    def get_Descr(self):
+        return self.__Description
+
+    def set_Descr(self, text):
+        self.__Description = text
+
+    player_Description = property(get_Descr, set_Descr)
     def __str__(self):
         if self.victoryPhrase is not None:
-            return f"მოთამაშის სახელია {self.name}, მოთამაშის მოგებები: {self.wins}, მოთამაშის მოგების ფრაზაა {self.victoryPhrase}"
-        return f"მოთამაშის სახელია {self.name}, მოთამაშის მოგებები: {self.wins}"
+            return f"მოთამაშის სახელია {self.name}, მოთამაშის მოგებები: {self.wins}, მოთამაშის Description: {self.__Description}, მოთამაშის მოგების ფრაზაა {self.victoryPhrase}"
+        return f"მოთამაშის სახელია {self.name}, მოთამაშის Description: {self.__Description}, მოთამაშის მოგებები: {self.wins}"
 
 
 class Game:
@@ -43,8 +51,8 @@ class Game:
         self.playerTwo = playerTwo
 
     def gameOn(self, playerOne_InGame, playerTwo_InGame):
-        self.__playerOne = playerOne_InGame
-        self.__playerTwo = playerTwo_InGame
+        self.playerOne = playerOne_InGame
+        self.playerTwo = playerTwo_InGame
         players = [playerOne_InGame, playerTwo_InGame]
         i = False
         while True:
@@ -78,6 +86,10 @@ if playerOne_VictoryPhrase == '':
 else:
     playerOne_VictoryPhrase == playerOne_VictoryPhrase
 
+playerOne_Descritpion = input('მოთამაშე 1 - შეიყვანეთ თქვენი BIO, თუ არ გსურთ BIO-ს შეყვანა დააწექით Enter ღილაკს: ')
+if playerOne_Descritpion == '':
+    playerOne_Descritpion = 'მოთამაშეს არ აქვს BIO'
+
 count = 0
 playerOne_Ship_Position = []
 ship_One = 0
@@ -100,7 +112,7 @@ while count < 3:
 
 print('პირველი მოთამაშის გემის პოზიციებია:', playerOne_Ship_Position)
 
-P1 = Player(playerOne_Name, playerOne_Ship_Position, playerOne_VictoryPhrase)
+P1 = Player(playerOne_Name, playerOne_Ship_Position, playerOne_Descritpion, playerOne_VictoryPhrase)
 print(P1)
 
 playerTwo_Name = input('მოთამაშე 2 - შეიყვანეთ თქვენი სახელი: ')
@@ -111,6 +123,10 @@ if playerTwo_VictoryPhrase == '':
     playerTwo_VictoryPhrase = None
 else:
     playerTwo_VictoryPhrase == playerTwo_VictoryPhrase
+
+playerTwo_Descritpion = input('მოთამაშე 2 - შეიყვანეთ თქვენი BIO, თუ არ გსურთ BIO-ს შეყვანა დააწექით Enter ღილაკს: ')
+if playerTwo_Descritpion == '':
+    playerTwo_Descritpion = 'მოთამაშეს არ აქვს BIO'
 
 count = 0
 playerTwo_Ship_Position = []
@@ -134,7 +150,7 @@ while count < 3:
 
 print('მეორე მოთამაშის გემის პოზიციებია:', playerTwo_Ship_Position)
 
-P2 = Player(playerTwo_Name, playerTwo_Ship_Position, playerTwo_VictoryPhrase)
+P2 = Player(playerTwo_Name, playerTwo_Ship_Position, playerTwo_Descritpion, playerTwo_VictoryPhrase)
 print(P2)
 
 ask_Player_Map = input("""შეიყვანეთ თქვენთვის სასურველი რუკა რომელზეც ითამაშებთ
