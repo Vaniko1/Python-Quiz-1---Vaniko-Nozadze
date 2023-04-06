@@ -183,3 +183,5 @@ G1.gameOn(P1, P2)
 
 print(f'{P1.name}-ის მოგებები:', P1.wins)
 print(f'{P2.name}-ის მოგებები:', P2.wins)
+
+# axali laini
