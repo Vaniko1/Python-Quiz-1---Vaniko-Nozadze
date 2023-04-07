@@ -40,7 +40,7 @@ class Player:
     player_Description = property(get_Descr, set_Descr)
     def __str__(self):
         if self.victoryPhrase is not None:
-            return f"მოთამაშის სახელია {self.name}, მოთამაშის მოგებები: {self.wins}, მოთამაშის Description: {self.__Description}, მოთამაშის მოგების ფრაზაა {self.victoryPhrase}"
+            return f"მოთამაშის სახელია {self.name}, მოთამაშის მოგებები: {self.wins}, მოთამაშის Description: {self.__Description}, მოთამაშის მოგების ფრაზაა: {self.victoryPhrase}"
         return f"მოთამაშის სახელია {self.name}, მოთამაშის Description: {self.__Description}, მოთამაშის მოგებები: {self.wins}"
 
 
